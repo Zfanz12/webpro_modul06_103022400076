@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import KartuMenu from "./components/KartuMenu"
+import Panel from './components/Panel'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,15 +16,16 @@ function App() {
             <h1 className='Judul' style={color}>{nama} </h1>
             {jam < 12? 'selamat pagi' : 'selamat siang'}
             <p>Saldo awal kartun kantin: {76*1000} </p>
-            <p id = "tes"></p>
+            
+            <button className='bayar' disabled>Bayar</button>
+            <Panel judul="Menu hari ini">
+              <KartuMenu nama="Ayam Asin Cihapit" harga={10000+(76*100)} />
+              <KartuMenu nama="cocacola" harga={20000} kategori="minuman" />
+              <KartuMenu nama="Warpas" harga={2000} />
+            </Panel>
+          
+
         </fragment>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
       </section>
     </>
   )
